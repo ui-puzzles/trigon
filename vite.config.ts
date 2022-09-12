@@ -14,7 +14,7 @@ const rollupOptions = {
 };
 
 /**
- * NOTE: docs - https://vitejs.dev/config/
+ * DOCS: https://vitejs.dev/config/
  */
 export default defineConfig({
   plugins: [
@@ -26,11 +26,12 @@ export default defineConfig({
   build: {
     rollupOptions,
     minify: false,
+    // Whether to output css individually when compiling.
     cssCodeSplit: true,
     lib: {
       entry: './src/entry.ts',
-      name: 'TrigonUI',
-      fileName: 'trigon-ui',
+      name: 'UIPuzzle',
+      fileName: 'ui-puzzle',
       // @ts-ignore
       formats: ['esm', 'umd', 'iife'],
       // @ts-check

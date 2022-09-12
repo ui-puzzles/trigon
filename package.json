@@ -11,7 +11,11 @@
     "docs:serve": "vitepress serve docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "vue3",
+    "UI Components",
+    "Vite"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
