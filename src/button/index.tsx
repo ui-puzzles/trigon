@@ -27,7 +27,7 @@ export const props = {
 } as const;
 
 export default defineComponent({
-  name: 'TButton',
+  name: 'Button',
   props, // register properties
   setup(props, { slots }) {
     const size = {
