@@ -63,3 +63,7 @@ Github 可用的虚拟机有：
 - uses：运行第三方 Action 脚本。
 
 6. uses 可以用于 Action。Action 可以认为是 Github 提前写好的一些常用的脚本，当然这些脚本也支持自己定义。可以在 [Marketplace](https://github.com/marketplace?type=actions&query=actions) 查找：
+
+## 要点
+
+1. CI 徽章代表开源库是有持续集成保证质量的，这也是评价一个组件库水平的重要指标。
