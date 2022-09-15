@@ -4,12 +4,23 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 import Unocss from './config/unocss';
 
-const rollupOptions = {
+interface RollupOptionsPartial {
+  external: string[];
+  output: {
+    globals: {
+      vue: string;
+    };
+    exports: 'named' | 'default' | 'none' | 'auto';
+  };
+}
+
+const rollupOptions: RollupOptionsPartial = {
   external: ['vue', 'vue-router'],
   output: {
     globals: {
       vue: 'Vue',
     },
+    exports: 'named',
   },
 };
 
@@ -32,8 +43,8 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: './src/entry.ts',
-      name: 'UIPuzzle',
-      fileName: 'ui-puzzle',
+      name: 'TrigonUI',
+      fileName: '@ui-puzzles/trigon',
       // @ts-ignore
       formats: ['esm', 'umd', 'iife'],
       // @ts-check

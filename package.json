@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "A simple set of components based on Vue 3",
   "main": "index.js",
+  "module": "./dist/@ui-puzzles/trigon.esm.js",
+  "homepage": "",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,7 +23,14 @@
     "UI Components",
     "Vite"
   ],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "email": "fujia.site@gmail.com",
+    "name": "fujia",
+    "url": "https://www.fujia.site/"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
