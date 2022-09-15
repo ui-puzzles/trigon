@@ -37,4 +37,15 @@ export default defineConfig({
       // @ts-check
     },
   },
+  test: {
+    // enable jest-like global test APIs
+    globals: true,
+    // simulate DOM with happy-dom
+    // (requires installing happy-dom as a peer dependency)
+    environment: 'happy-dom',
+    // support tsx component，it is critical
+    transformMode: {
+      web: [/.[tj]sx$/],
+    },
+  },
 });

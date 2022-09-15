@@ -1,7 +1,7 @@
 // import { createApp } from 'vue';
 import { createApp } from 'vue/dist/vue.esm-browser';
 
-import TButton from './button';
+import TButton from './button/Button';
 // import SFCButton from './SFCButton/index.vue';
 // import JSXButton from './JSXButton';
 import TrigonUI from './entry';
