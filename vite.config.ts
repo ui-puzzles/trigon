@@ -25,7 +25,9 @@ export default defineConfig({
   ],
   build: {
     rollupOptions,
-    minify: false,
+    minify: 'terser', // options: boolean | 'terser' | 'esbuild'
+    sourcemap: true,
+    brotliSize: true, // generate report for compressing size
     // Whether to output css individually when compiling.
     cssCodeSplit: true,
     lib: {
