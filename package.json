@@ -1,6 +1,6 @@
 {
   "name": "@ui-puzzles/trigon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple set of components based on Vue 3",
   "main": "index.js",
   "module": "./dist/@ui-puzzles/trigon.esm.js",
