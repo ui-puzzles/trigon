@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "jsx": "preserve"
+  },
+  "include": [
+    "./**/*.*",
+    "./src/shims-vue.d.ts",
+    "docs/.vitepress/shims-vue.d.ts",
+    "docs/.vitepress/theme/shims-vue.d.ts"
+  ],
+  "exclude": ["node_modules"],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true
+}

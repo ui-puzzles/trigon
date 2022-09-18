@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  Lint:
+    # This workflow contains a single job called "build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.11.0
+      - name: Install modules
+        run: pnpm install
+      - name: Run Lint
+        run: cd packages/trigon && pnpm run lint
+  UnitTest:
+    # unit tests job
+    # the type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.11.0
+      - name: Install modules
+        run: pnpm install
+      - name: Run Test
+        run: cd packages/trigon && pnpm run test:run
+  PreBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.11.0
+      - name: Install modules
+        run: pnpm install
+      - name: Run Build
+        run: cd packages/trigon && pnpm run build
