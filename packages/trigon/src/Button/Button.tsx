@@ -1,4 +1,4 @@
-import { defineComponent, h, PropType, toRefs } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import 'uno.css';
 
 import { BtnColor, BtnSize } from './interface';
@@ -27,7 +27,7 @@ export const props = {
 } as const;
 
 export default defineComponent({
-  name: 'Button',
+  name: 'TButton',
   props, // register properties
   setup(props, { slots }) {
     const size = {
@@ -71,11 +71,7 @@ export default defineComponent({
           mx-1
         `}
       >
-        {props.icon !== '' ? (
-          <i class={`i-ic-baseline-${props.icon} p-3`}></i>
-        ) : (
-          ''
-        )}
+        {props.icon !== '' ? <i class={`i-ic-baseline-${props.icon} p-3`}></i> : ''}
         {slots.default ? slots.default() : ''}
       </button>
     );

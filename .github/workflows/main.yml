@@ -19,7 +19,7 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Run Lint
-        run: pnpm run lint
+        run: cd packages/trigon && pnpm run lint
   UnitTest:
     # unit tests job
     # the type of runner that the job will run on
@@ -33,7 +33,7 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Run Test
-        run: pnpm run test:run
+        run: cd packages/trigon && pnpm run test:run
   PreBuild:
     runs-on: ubuntu-latest
     steps:
@@ -44,4 +44,4 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Run Build
-        run: pnpm run build
+        run: cd packages/trigon && pnpm run build

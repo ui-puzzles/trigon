@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
@@ -15,7 +15,7 @@ interface RollupOptionsPartial {
 }
 
 const rollupOptions: RollupOptionsPartial = {
-  external: ['vue', 'vue-router'],
+  external: ['vue'],
   output: {
     globals: {
       vue: 'Vue',
@@ -27,12 +27,12 @@ const rollupOptions: RollupOptionsPartial = {
 /**
  * DOCS: https://vitejs.dev/config/
  */
-export default defineConfig({
+export const config = {
   plugins: [
-    vue(),
-    vueJsx(),
+    vue() as Plugin,
+    vueJsx() as Plugin,
     // UnoCSS
-    Unocss(),
+    Unocss() as Plugin[],
   ],
   build: {
     rollupOptions,
@@ -40,25 +40,31 @@ export default defineConfig({
     sourcemap: true,
     brotliSize: true, // generate report for compressing size
     // Whether to output css individually when compiling.
-    cssCodeSplit: true,
     lib: {
       entry: './src/entry.ts',
       name: 'TrigonUI',
       fileName: '@ui-puzzles/trigon',
-      // @ts-ignore
       formats: ['esm', 'umd', 'iife'],
-      // @ts-check
     },
+    cssCodeSplit: true,
+    outDir: './dist',
   },
   test: {
     // enable jest-like global test APIs
     globals: true,
     // simulate DOM with happy-dom
     // (requires installing happy-dom as a peer dependency)
-    environment: 'happy-dom',
+    // environment: 'happy-dom',
+    environment: 'jsdom',
     // support tsx component，it is critical
     transformMode: {
       web: [/.[tj]sx$/],
     },
+    coverage: {
+      provider: 'istanbul', // or 'c8'
+      reporter: ['text', 'json', 'html'],
+    },
   },
-});
+};
+
+export default defineConfig(config as UserConfig);

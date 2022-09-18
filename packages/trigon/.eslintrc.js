@@ -27,5 +27,6 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'de-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'prettier/prettier': 'error',
+    'no-unused-vars': 'warn',
   },
 };

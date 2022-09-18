@@ -1,66 +1,30 @@
 {
-  "name": "@ui-puzzles/trigon",
+  "name": "ui-puzzles-monorepo",
   "version": "0.2.0",
-  "description": "A simple set of components based on Vue 3",
+  "description": "",
   "main": "index.js",
-  "module": "./dist/@ui-puzzles/trigon.esm.js",
-  "homepage": "",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
-    "lint": "eslint --fix --ext .ts,.vue src",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "coverage": "vitest run --coverage",
+    "preinstall": "node ./scripts/preinstall.js",
     "prepare": "husky install"
   },
   "keywords": [
     "vue3",
-    "UI Components",
-    "Vite"
-  ],
-  "files": [
-    "dist"
+    "vite",
+    "ui-puzzles",
+    "ecosystem"
   ],
   "author": {
-    "email": "fujia.site@gmail.com",
-    "name": "fujia",
-    "url": "https://www.fujia.site/"
+    "email": "fujia.site@outlook.com",
+    "name": "fujia"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@iconify-json/ic": "^1.1.9",
-    "@types/node": "^18.7.11",
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/test-utils": "^2.0.2",
-    "eslint": "^8.23.1",
-    "eslint-formatter-pretty": "^4.1.0",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.4.0",
-    "happy-dom": "^6.0.4",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1",
-    "terser": "^5.15.0",
-    "typescript": "^4.8.3",
-    "unocss": "^0.45.12",
-    "vite": "^3.0.9",
-    "vitepress": "1.0.0-alpha.10",
-    "vitepress-theme-demoblock": "^1.4.2",
-    "vitest": "^0.23.2"
+    "esno": "^0.16.3",
+    "husky": "^8.0.1"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "vite": "^3.0.9"
   }
 }
