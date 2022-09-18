@@ -20,7 +20,7 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Build
-        run: npm run build
+        run: cd packages/trigon && npm run build
       - name: 'Publish to npm registry'
         uses: primer/publish@3.0.0
         env:
@@ -28,3 +28,4 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         with:
           default_branch: 'release'
+          dir: 'packages/trigon/dist'

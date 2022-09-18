@@ -33,3 +33,57 @@ Mutirepo，即一个软件包一个 repo 仓库，目前是前端多项目场景
 2. lernaJS 是由 Babel 团队编写的多包管理工具。因为 Babel 体系的规模庞大后有很多子包需要管理，放在多个仓库管理起来比较困难。
 
 3. 2021 年底 Pnpm 横空出世，闪电般的性能一下子征服了所有前端开发者。更重要的是它还附带 monorepo 方案。 目前 vue3 由 lerna 改为了 pnpm workspace.
+
+## 实现
+
+1. 在根目录重新初始化一个 npm，在软件包中禁用 npm 和 yarn。这一步的目的是允许项目使用 pnpm 进行模块管理。不然的话会出现不兼容问题。
+
+- 添加 preinstall npm hook 钩子，这个钩子会在安装模块前触发，检查该代码是否是使用 pnpm 运行。如果不是的话会推出并提示错误；
+
+实现细节：
+
+```json
+{
+  "scripts": {
+  "preinstall": "node ./scripts/preinstall.js"
+}
+}
+
+// or
+{
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+}
+}
+```
+
+```js
+'use strict';
+
+if (!/pnpm/.test(process.env.npm_execpath || '')) {
+  console.log();
+  console.warn(
+    `\u001b[33mThis repository requires using pnpm as the package manager for scripts to work properly.\u001b[39m\n `
+  );
+
+  process.exit(1);
+}
+```
+
+2. 初始化工作空间
+
+在 monorepo 项目中，每个软件包都会存放在工作空间，方便管理。
+
+首先需要创建一个 pnpm-workspace.yaml，这个文件用于声明所有软件包全部存放在 packages 目录之中。其实目前 monorepo 风格的项目也普遍使用 packages 作为默认软件包目录位置。
+
+3. 安装依赖
+
+多个软件包依赖一个 npm 包，可以将依赖安装到 workspace 中：
+
+```sh
+# install into workspace
+pnpm i vite -w
+
+# install into sub package
+pnpm i vue -r --filter [package-name]
+```

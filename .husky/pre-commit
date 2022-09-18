@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm run lint
+echo ====== code static checking ======
+
+cd packages/trigon
+pnpm lint

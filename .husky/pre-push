@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo ====== code unit tests ======
+
+cd packages/trigon
 pnpm run test:run

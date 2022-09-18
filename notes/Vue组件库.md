@@ -61,6 +61,52 @@ Vitepress 是一款基于 Vite 的静态站点生成工具。
 :::
 ```
 
+## 组件的引入
+
+1. 目前组件的按需引入的两个方法：
+
+- 组件单独分包 + 按需导入 + babel-plugin-component ( 自动化按需引入)；
+- ESModule + Treeshaking + 自动按需 import（unplugin-vue-components 自动化配置）
+
+### 分包与摇树
+
+1. 传统的解决方案就是将组件库分包导出，比如将组件库分为 List、Button、Card，用到哪个加载哪个，简单粗暴，不足之处：
+
+- 需要了解软件包内部构造 例： import "ui/xxx" or import "ui/package/xxx"；
+- 需要不断手工调整组件加载预注册。
+
+结合 babel-plugin-component 可以解决包构造问题
+
+```js
+// 全部导入
+const TrigonUI = require('trigon-ui');
+
+// 单独导入
+const Button = require('trigon-ui/button');
+
+// 转换前
+const { Button } = require('trigon-ui');
+// 转换后
+const Button = require('trigon-ui/button');
+```
+
+3. 随着 esmodule 成为前端开发的主流，利用静态编译，在编译阶段就可以判断需要导入哪些包。
+
+### 实现分包导出
+
+> unplugin-vue-component 的自动导入
+
+1. 分包导出相当于将组件库形成无数各子软件包，软件包必须满足一下要求：
+
+- 文件名即组件名；
+- 独立的 package.json 定义，包含 esm 和 umd 的入口定义；
+- 每个组件必须以 Vue 插件形式进行加载；
+- 每个软件包还需要有单独的 css 导出。
+
+2. 编写分包导出脚本
+
+默认导出方式是通过配置 vite.config.ts 的 build 属性完成。但是在分包导出的时候需要每个组件都分别配置自己的配置文件，而且需要由程序自动读取组件文件夹，根据文件夹的名字遍历打包，还需要为每个子组件包配上一个 package.json 文件。
+
 ## 要点
 
 1. 在软件工程中有这样一个概念：**一个完整的软件是文档和代码的组合体，** 不知道如何使用的代码是没有任何价值的。**项目文档的建设工作应该越早越好。**
@@ -80,3 +126,9 @@ Vitepress 是一款基于 Vite 的静态站点生成工具。
 4. Vue3 默认的包是不支持模板编译功能的，即不能使用 template 语法。
 
 在 Vue3.0 中编译功能推荐在构建阶段完成，而不是放到浏览器中运行。如果希望在浏览器中的话，可以选择 ./node_modules/vue/dist/vue.global.js 这个包。
+
+5. git 提交时，默认的 git 修改是忽略大小写的，需要改一下 git 的配置
+
+```sh
+git config core.ignorecase false
+```

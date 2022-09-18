@@ -3,8 +3,7 @@
     "lib": ["ESNext"],
     "declaration": true,
     "declarationDir": "./dist/types",
-    "jsx": "preserve",
-    "skipLibCheck": true
+    "jsx": "preserve"
   },
   "include": [
     "./**/*.*",
@@ -14,5 +13,5 @@
   ],
   "exclude": ["node_modules"],
   "esModuleInterop": true,
-  "allowSyntheticDefaultImports": "true"
+  "allowSyntheticDefaultImports": true
 }
