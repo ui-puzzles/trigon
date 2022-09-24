@@ -1,10 +1,10 @@
 {
   "name": "@ui-puzzles/trigon",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A simple set of components based on Vue 3",
   "main": "./dist/@ui-puzzles/trigon.umd.js",
   "module": "./dist/@ui-puzzles/trigon.esm.js",
-  "homepage": "",
+  "homepage": "https://trigon.vercel.app",
   "scripts": {
     "dev": "vite",
     "run:demo": "vite",
@@ -33,7 +33,7 @@
     "name": "fujia",
     "url": "https://www.fujia.site/"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@algolia/client-search": "^4.14.2",
     "@babel/core": "^7.19.1",
@@ -45,6 +45,7 @@
     "@typescript-eslint/parser": "^5.37.0",
     "@vitejs/plugin-vue": "^3.0.3",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vitest/coverage-istanbul": "^0.23.4",
     "@vitest/ui": "^0.23.2",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.0.2",
