@@ -2,11 +2,6 @@
   <a href="https://ui-puzzles.github.io/rect/?path=/docs/welcome--page" target="_blank">
     <img alt="ui-puzzle logo" width="200" src="https://static-images-1305792369.cos.ap-shanghai.myqcloud.com/puzzle-logo.svg"/>
   </a>
-
-[![CI](https://github.com/ui-puzzles/trigon/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/ui-puzzles/trigon/actions/workflows/main.yml)
-![MIT](https://img.shields.io/github/license/ui-puzzles/trigon?color=red)
-[![codecov](https://codecov.io/gh/ui-puzzles/trigon/branch/main/graph/badge.svg?token=RNK3OTI93J)](https://codecov.io/gh/ui-puzzles/trigon)
-
 </div>
 
 <div align="center">
@@ -15,27 +10,29 @@
 
 <div align="center">
 
-A simple set of components based on Vue3.
+基于 Vue3 的简单的组件 UI 库。
 
 </div>
 
 <div align="center">
 
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 
 </div>
 
-## Features
+## 特性
 
-- Based on Vue3 framework.
-- Supporting JSX and SFC.
-- Jest and Vue3 plugins for unit testing.
-- Eslint + Prettier + Husky for syntax checking.
-- Building with Rollup.
-- Vitepress and Vercel for building document site.
-- Based on Action CI for CI/CD.
+- 基于 Vue3 框架
+- 支持 JSX 与 Vue 单文件组件
+- Jest + Vue3 plugins 实现单元测试
+- Eslint + Prettier + Husky 语法检查
+- 采用 Rollup 构建
+- Vitepress + Vercel 文档网站搭建
+- 基于 Action CI 实现持续集成与交付
+- 组件采用 TypeScript 编写的，对类型编程友好
+- 开箱即用的高质量组件, 可以覆盖绝大部份的业务场景
 
-## Install
+## 安装
 
 [npm package](https://www.npmjs.com/package/@ui-puzzles/trigon)
 
@@ -47,7 +44,7 @@ npm i @ui-puzzles/trigon
 yarn add @ui-puzzles/trigon
 ```
 
-## Usage
+## 使用
 
 ```ts
 import Vue from 'vue';
@@ -62,14 +59,16 @@ const App = {
 createApp(App).use(TrigonUI).mount('#app');
 ```
 
-## Browser Support
+## 文档
+
+查看<a href="https://trigon.vercel.app" target="_blank">文档</a>以了解更多内容。
+
+## 浏览器兼容性
 
 | IE / Edge | Firefox         | Chrome          | Safari          | Opera           | Electron        |
 | --------- | --------------- | --------------- | --------------- | --------------- | --------------- |
 | Edge      | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## Join Discussion Group
-
 ## License
 
-This project is [MIT licensed](./LICENSE)
+[MIT 协议](./LICENSE)
